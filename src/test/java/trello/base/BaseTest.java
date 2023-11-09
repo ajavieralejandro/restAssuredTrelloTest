@@ -11,6 +11,9 @@ import static io.restassured.RestAssured.given;
 public class BaseTest {
     protected static RequestSpecification requestSpec;
     protected static RequestSpecification badRequestSpec;
+
+    public static RequestSpecification requestSOAP;
+
     protected static String boardID;
 
 
@@ -28,8 +31,13 @@ public class BaseTest {
                 .addQueryParam("key","5asdasdasd")
                 .addHeader("Content-Type","application/json")
                 .build();
+        requestSOAP=new RequestSpecBuilder()
+                .setBaseUri("http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso")
+                .addHeader("Content-Type","text/xml; charset=utf-8")
+                .build();
     }
-   @AfterClass
+   /*
+    @AfterClass
     public static void deleteBoard(){
         given().spec(requestSpec)
                 .pathParam("id", boardID)
@@ -37,6 +45,8 @@ public class BaseTest {
                 .when().delete("1/boards/{id}");
 
     }
+
+     */
     @DataProvider(name="BoardField")
     public Object [][] getData(){
         return new Object[][]{
