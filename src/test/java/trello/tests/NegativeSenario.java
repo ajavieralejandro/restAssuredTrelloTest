@@ -2,7 +2,7 @@ package trello.tests;
 
 import com.google.gson.JsonObject;
 import org.testng.annotations.Listeners;
-import trello.base.BaseTest;
+import trello.base.*;
 import org.testng.annotations.Test;
 import trello.pojo.GetBoard;
 
